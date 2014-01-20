@@ -1,16 +1,20 @@
 @import 'bourbon';
 @import 'bitters';
 
+@import "libs/settings";
+@import "libs/mixins";
+
+
 @import url(http://fonts.googleapis.com/css?family=Bitter);
 @import url(http://fonts.googleapis.com/css?family=Varela+Round);
 
 
 /* ==========================================================================
-   Variables and Mixins
+   Variables
    ========================================================================== */
 $font-stack:  'Bitter', serif; 
 $nav-stack: 'Varela Round', sans-serif;
-
+$jobs-color: #299758;
 
 
 /* ==========================================================================
@@ -37,18 +41,38 @@ body {
 .main-header {
     background: url('/images/main-header.jpg') no-repeat;
     height:630px;
+    background-position: center center;
+    background-size: cover;
 }
 
 .home-desc {
-    background-color:#299758;
+    background-color:$jobs-color;
     color:white;
 }
 
 .join-desc {
     background-color:#fcfae7;
     color:#3e3e3e;
+
+    h2,h3 {
+        color: $jobs-color;
+        margin-bottom: 10px;
+    }
 }
 
+.view-all-jobs {
+    color: $jobs-color;
+    border: 1px solid $jobs-color;
+    width:50%;
+    padding: 25px 0;
+}
+.view-all-jobs a {
+    font: 16px/24px $font-stack;
+    color: $jobs-color !important;
+}
+
+
+ 
 .footer {
     color:white;
 }
@@ -195,4 +219,70 @@ body {
     };
 }
 
- 
+ /* ==========================================================================
+   Slider
+   ========================================================================== */
+
+#slider {
+  position: relative;
+  margin: 0 auto 0 auto;
+  border-radius: 4px;
+}
+
+#slider ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#slider ul li {
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 940px;
+  height: 500px;
+  background: #ccc;
+  text-align: center;
+  line-height: 300px;
+}
+
+a.control_prev, a.control_next {
+  position: absolute;
+  top: 40%;
+  z-index: 999;
+  display: block;
+  padding: 4% 3%;
+  width: auto;
+  height: auto;
+  background: #2a2a2a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+a.control_prev:hover, a.control_next:hover {
+  opacity: 1;
+  -webkit-transition: all 0.2s ease;
+}
+
+a.control_prev {
+  border-radius: 0 2px 2px 0;
+}
+
+a.control_next {
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+.slider_option {
+  position: relative;
+  margin: 10px auto;
+  width: 160px;
+  font-size: 18px;
+}
